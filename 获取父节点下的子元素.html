@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取父节点下的子元素</title>
+</head>
+<body>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+<script>
+    /*
+    *  思路:
+    *  1先或取UL中的元素2,在获取ul中下的所有自节点3,判断自节点是不是元素节点4,返回元素节点
+    * */
+    var oUl=document.getElementsByTagName("ul")[0];
+    function getChild(ele) {// ele形参
+//        获取当前元素的所有节点
+        var aChild=ele.childNodes;
+         var ary=[];
+        for(var i=0;i<aChild.length;i++){
+            var cur=aChild[i];
+            if(cur.nodeType==1){
+                ary.push(cur);
+            }
+        }
+        return ary;
+    }
+    console.log(getChild(oUl).length);//oUl是实参
+</script>
+</body>
+</html>

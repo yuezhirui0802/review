@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>循环绑定事件</title>
+</head>
+<body>
+<input type="button" value="按钮一"/>
+<input type="button" value="按钮二"/>
+<input type="button" value="按钮三"/>
+<input type="button" value="按钮四"/>
+<script>
+    var oInput=document.getElementsByTagName("input");
+   /* for(var i=0;i<oInput.length;i++){
+        oInput[i].index=i;
+        oInput[i].onclick=function (index) {
+            alert(this.index+1);
+        }
+    }*/
+    for(var i=0;i<oInput.length;i++) {
+        (function (index) {
+            oInput[i].onclick = function () {
+                alert(index+1);
+            }
+        })(i);
+    }
+</script>
+</body>
+</html>

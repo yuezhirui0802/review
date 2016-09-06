@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding:0;
+            margin: 0;
+        }
+        body{
+            margin: 50px auto;
+            /*color: #B00040;*/
+        }
+        span{
+            width: 100px;
+            height: 200px;
+            line-height: 200px;
+            font-size: 100px;
+            text-align: center;
+            margin: 50px auto;
+            font-family:"Bangla Sangam MN";
+        }
+    </style>
+</head>
+<body>
+<span>00:00:00</span>
+<script>
+    var oSpan=document.getElementsByTagName("span")[0];
+    function tudo(n) {
+        return n>=0&&n<=9?"0"+n:""+n;
+    }
+    function cutTime() {
+        var oTime=new Date();//首字母大写的都是一个类,括号可以省略
+        var newTime=new Date("2016/9/4 18:00:00");
+        var s=Math.floor((newTime-oTime)/1000);
+//        var s=Math.floor((newTime.getTime()-oTime.getTime())/1000);//getTime()是获取到1970年1月1日的00:00:00的毫秒数.
+        if(s<=0){
+            clearInterval(timer);
+            oSpan.innerHTML="现在已经下课了";
+            oSpan.style.background="#ccc";
+            return;
+        }
+        var d=Math.floor(s/86400);
+        s%=86400;
+        var h=Math.floor(s/3600);
+        s%=3600;
+        var m=Math.floor(s/60);
+        s%=60;
+        var str =tudo(d)+"天 "+tudo(h)+":"+tudo(m)+":"+tudo(s);
+        oSpan.innerHTML=str;
+    }
+    cutTime();
+    var timer=setInterval(cutTime,1000);
+</script>
+</body>
+</html>

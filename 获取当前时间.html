@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取当前时间</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            font-size:100px;
+            color: #B00040;
+            font-family:"Apple SD Gothic Neo" ;
+        }
+    </style>
+</head>
+<body>
+<script>
+    function tudu(n) {
+        return n>=0&&n<=9?"0"+n:""+n;
+    }
+    function getTime(){
+        var oDate=new Date();
+        var h=oDate.getHours();
+        var m=oDate.getMinutes();
+        var s=oDate.getSeconds();
+        var str=tudu(h)+":"+tudu(m)+":"+tudu(s);
+        document.body.innerHTML=str;
+    }
+    getTime();
+    var timer=setInterval(getTime,1000);
+</script>
+
+</body>
+</html>

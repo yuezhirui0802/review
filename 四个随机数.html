@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>四个随机数</title>
+</head>
+<body>
+<script>
+    var ary="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    var str="";
+    var ary1=[];
+    for(var i=0;i<4;i++){
+        var cur=Math.round(Math.random()*61);
+     /*   if(ary1.indexOf(cur)==-1){
+            ary1.push(cur);
+            str+=ary.charAt(cur);
+            console.log(str);
+        }else {
+            i--;
+        }*/
+        if(ary1.indexOf(cur)!=-1){
+            i--;
+        }else {
+            ary1.push(cur);
+            str+=ary.charAt(cur);
+        }
+    }
+    console.log(str);
+</script>
+</body>
+</html>
